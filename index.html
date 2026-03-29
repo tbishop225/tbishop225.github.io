@@ -183,7 +183,7 @@ function genPDF(){
   y+=80;
   doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(...G);doc.text('Prepared exclusively by Bishop Financial Consulting',PW/2,y,{align:'center'});y+=14;
   doc.setFillColor(...LB);doc.rect(ML,y,CW,54,'F');doc.setDrawColor(...B);doc.setLineWidth(.5);doc.rect(ML,y,CW,54,'S');
-  const rws=[[['Client:',cn],['Date:',dd]],[['Industry:',document.getElementById('industry').value||'—'],['Prepared By:','Tamika Bishop']],[['Period:',document.getElementById('reviewPeriod').value||'—'],['Contact:','tbishop225@hotmail.com']]];
+  const rws=[[['Client:',cn],['Date:',dd]],[['Industry:',document.getElementById('industry').value||'—'],['Prepared By:','Tamika Bishop']],[['Period:',document.getElementById('reviewPeriod').value||'—'],['Contact:','tbishop225@gmail.com']]];
   let ry=y+14;
   rws.forEach(rw=>{doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(...GR);doc.text(rw[0][0],ML+8,ry);doc.text(rw[1][0],ML+290,ry);doc.setFont('helvetica','normal');doc.setTextColor(30,30,30);doc.text(rw[0][1]||'—',ML+105,ry);doc.text(rw[1][1]||'—',ML+385,ry);ry+=15;});
   y+=64;
@@ -213,7 +213,7 @@ function genPDF(){
   doc.text(discLines1,ML,756);
   doc.setDrawColor(204,204,204);doc.setLineWidth(.5);doc.line(ML,766,ML+CW,766);
   doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(180,180,180);
-  doc.text('Bishop Financial Consulting  |  tbishop225@hotmail.com  |  502-377-7138  |  Confidential',PW/2,774,{align:'center'});
+  doc.text('Bishop Financial Consulting  |  tbishop225@gmail.com  |  502-377-7138  |  Confidential',PW/2,774,{align:'center'});
 
   doc.addPage();y=0;gb(0,8);y=8;
   doc.setFillColor(...N);doc.rect(ML,y,CW,38,'F');doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(...W);doc.text('YOUR RETURN ON INVESTMENT',PW/2,y+24,{align:'center'});y+=38;
@@ -244,7 +244,7 @@ function genPDF(){
 
   doc.setFillColor(...G);doc.rect(ML,y,CW,54,'F');doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(...N);doc.text("Ready to recover what's yours?",PW/2,y+18,{align:'center'});
   doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(80,60,10);doc.text('Contact Tamika Bishop today to schedule your AR audit consultation.',PW/2,y+32,{align:'center'});
-  doc.setFont('helvetica','bold');doc.setFontSize(9.5);doc.setTextColor(...N);doc.text('tbishop225@hotmail.com     |     502-377-7138',PW/2,y+46,{align:'center'});y+=64;
+  doc.setFont('helvetica','bold');doc.setFontSize(9.5);doc.setTextColor(...N);doc.text('tbishop225@gmail.com     |     502-377-7138',PW/2,y+46,{align:'center'});y+=64;
   doc.setDrawColor(204,204,204);doc.setLineWidth(.5);doc.line(ML,748,ML+CW,748);
   doc.setFont('helvetica','italic');doc.setFontSize(6.5);doc.setTextColor(160,160,160);
   const disc2='Disclaimer: All estimates are based on identified opportunities and are not a guarantee of recovery or financial outcome. Results depend on client action and business circumstances.';
@@ -252,7 +252,7 @@ function genPDF(){
   doc.text(discLines2,ML,756);
   doc.setDrawColor(204,204,204);doc.setLineWidth(.5);doc.line(ML,766,ML+CW,766);
   doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(180,180,180);
-  doc.text('Bishop Financial Consulting  |  tbishop225@hotmail.com  |  502-377-7138  |  Confidential',PW/2,774,{align:'center'});
+  doc.text('Bishop Financial Consulting  |  tbishop225@gmail.com  |  502-377-7138  |  Confidential',PW/2,774,{align:'center'});
 
   const sf=cn.replace(/[^a-z0-9]/gi,'_');
   const pdfBlob=doc.output('blob');const blobUrl=URL.createObjectURL(pdfBlob);window.open(blobUrl,'_blank');
