@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Bishop Financial — AR Audit Generator</title>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Bishop Financial"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="theme-color" content="#1F3A5F"/>
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzFGM0E1RiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwZDFlMzMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9InJvdW5kIj4KICAgICAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI4MCIgcnk9IjgwIi8+CiAgICA8L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjgwIiByeT0iODAiIGZpbGw9InVybCgjYmcpIi8+CiAgPHJlY3QgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSIxNiIgcng9IjgiIGZpbGw9IiNDOUE4NEMiIGNsaXAtcGF0aD0idXJsKCNyb3VuZCkiLz4KICA8cmVjdCB5PSI0OTYiIHdpZHRoPSI1MTIiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjQzlBODRDIiBjbGlwLXBhdGg9InVybCgjcm91bmQpIi8+CiAgPHRleHQgeD0iMjU2IiB5PSIyNDUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIyMjAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjQzlBODRDIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj5CRjwvdGV4dD4KICA8dGV4dCB4PSIyNTYiIHk9IjM2OCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXNpemU9IjQwIiBmaWxsPSIjQkRENEVEIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iNiI+RklOQU5DSUFMPC90ZXh0PgogIDx0ZXh0IHg9IjI1NiIgeT0iNDE1IiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMzQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjQzlBODRDIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iNCI+Q09OU1VMVElORzwvdGV4dD4KPC9zdmc+"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzFGM0E1RiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwZDFlMzMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9InJvdW5kIj4KICAgICAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI4MCIgcnk9IjgwIi8+CiAgICA8L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjgwIiByeT0iODAiIGZpbGw9InVybCgjYmcpIi8+CiAgPHJlY3QgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSIxNiIgcng9IjgiIGZpbGw9IiNDOUE4NEMiIGNsaXAtcGF0aD0idXJsKCNyb3VuZCkiLz4KICA8cmVjdCB5PSI0OTYiIHdpZHRoPSI1MTIiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjQzlBODRDIiBjbGlwLXBhdGg9InVybCgjcm91bmQpIi8+CiAgPHRleHQgeD0iMjU2IiB5PSIyNDUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIyMjAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjQzlBODRDIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj5CRjwvdGV4dD4KICA8dGV4dCB4PSIyNTYiIHk9IjM2OCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXNpemU9IjQwIiBmaWxsPSIjQkRENEVEIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iNiI+RklOQU5DSUFMPC90ZXh0PgogIDx0ZXh0IHg9IjI1NiIgeT0iNDE1IiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMzQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjQzlBODRDIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iNCI+Q09OU1VMVElORzwvdGV4dD4KPC9zdmc+"/>
+<style>
+:root {
+  --navy: #1F3A5F; --blue: #1F5C99; --gold: #C9A84C;
+  --dark: #0d1623; --card: #111d2e; --card2: #0f1a28;
+  --lb: #BDD4ED; --gray: #8899AA;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body { background: var(--dark); color: #fff; font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; min-height: 100vh; }
+.hdr { background: linear-gradient(135deg, #1F3A5F, #162d4f); padding: 18px 18px 14px; border-bottom: 3px solid #C9A84C; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,.5); }
+.hdr-top { display: flex; align-items: center; justify-content: space-between; }
+.brand { font-size: 17px; font-weight: 800; } .brand span { color: #C9A84C; }
+.brand-sub { font-size: 11px; color: #BDD4ED; margin-top: 3px; }
+.badge { background: #C9A84C; color: #1F3A5F; font-size: 10px; font-weight: 800; padding: 5px 11px; border-radius: 20px; }
+.prog { margin-top: 12px; height: 4px; background: rgba(255,255,255,.1); border-radius: 2px; overflow: hidden; }
+.prog-fill { height: 100%; background: linear-gradient(90deg,#1F5C99,#C9A84C); border-radius: 2px; transition: width .4s; width: 0%; }
+.wrap { padding: 14px 14px 110px; max-width: 640px; margin: 0 auto; }
+.card { background: #111d2e; border-radius: 16px; margin-bottom: 12px; overflow: hidden; border: 1px solid rgba(31,92,153,.3); box-shadow: 0 4px 20px rgba(0,0,0,.3); }
+.card-hdr { background: linear-gradient(135deg,#1F3A5F,#1a3255); padding: 14px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; -webkit-user-select: none; }
+.num { width: 28px; height: 28px; border-radius: 50%; background: #C9A84C; color: #1F3A5F; font-weight: 900; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.num.done { background: #2ECC71; color: #fff; }
+.ctitle { font-weight: 700; font-size: 13px; flex: 1; letter-spacing: .3px; }
+.arr { color: #C9A84C; font-size: 13px; transition: transform .3s; }
+.arr.open { transform: rotate(180deg); }
+.cbody { padding: 16px; display: none; }
+.cbody.open { display: block; }
+.field { margin-bottom: 13px; }
+.field label { display: block; font-size: 11px; font-weight: 700; color: #BDD4ED; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 5px; }
+.field input, .field select, .field textarea { width: 100%; padding: 12px 13px; background: #0f1a28; border: 1.5px solid rgba(31,92,153,.4); border-radius: 10px; color: #fff; font-size: 15px; font-family: inherit; -webkit-appearance: none; appearance: none; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: #C9A84C; box-shadow: 0 0 0 3px rgba(201,168,76,.15); }
+.field input::placeholder, .field textarea::placeholder { color: rgba(136,153,170,.5); }
+.field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='2' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 13px center; background-color: #0f1a28; padding-right: 34px; }
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+@media(max-width:420px){.g2{grid-template-columns:1fr;}}
+.dw { position: relative; }
+.dw .sym { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: #C9A84C; font-weight: 700; font-size: 15px; pointer-events: none; }
+.dw input { padding-left: 26px; }
+.fblock { background: #0f1a28; border: 1px solid rgba(31,92,153,.3); border-radius: 11px; padding: 13px; margin-bottom: 11px; }
+.ftitle { font-size: 13px; font-weight: 700; margin-bottom: 11px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pri { font-size: 9px; font-weight: 800; padding: 3px 8px; border-radius: 10px; letter-spacing: .5px; }
+.H { background: rgba(231,76,60,.2); color: #FF6B5B; border: 1px solid rgba(231,76,60,.3); }
+.M { background: rgba(243,156,18,.15); color: #F39C12; border: 1px solid rgba(243,156,18,.25); }
+.total-box { background: linear-gradient(135deg,#1F3A5F,#1F5C99); border-radius: 13px; padding: 18px; text-align: center; margin-top: 14px; border: 1px solid rgba(201,168,76,.3); }
+.total-lbl { font-size: 10px; font-weight: 700; color: #BDD4ED; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+.total-amt { font-size: 36px; font-weight: 900; color: #C9A84C; line-height: 1; }
+.tip { background: rgba(31,92,153,.15); border-left: 3px solid #1F5C99; border-radius: 0 8px 8px 0; padding: 10px 13px; font-size: 12px; color: #BDD4ED; margin-top: 11px; line-height: 1.5; }
+.gen-wrap { position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent,#0d1623 30%); padding: 18px 14px 26px; z-index: 99; }
+.gen-btn { width: 100%; max-width: 640px; margin: 0 auto; display: block; padding: 17px; background: linear-gradient(135deg,#C9A84C,#B8962A); color: #1F3A5F; border: none; border-radius: 13px; font-size: 16px; font-weight: 900; cursor: pointer; box-shadow: 0 8px 24px rgba(201,168,76,.4); font-family: inherit; }
+.gen-btn:active { transform: scale(.98); }
+.toast { position: fixed; bottom: 105px; left: 50%; transform: translateX(-50%) translateY(20px); background: #2ECC71; color: #fff; padding: 11px 22px; border-radius: 22px; font-size: 13px; font-weight: 700; opacity: 0; transition: all .3s; z-index: 200; white-space: nowrap; box-shadow: 0 8px 20px rgba(0,0,0,.4); }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-top">
+    <div><div class="brand">Bishop <span>Financial</span> Consulting</div><div class="brand-sub">AR Audit Report Generator</div></div>
+    <div class="badge">⚡ INSTANT PDF</div>
+  </div>
+  <div class="prog"><div class="prog-fill" id="pf"></div></div>
+</div>
+
+<div class="wrap">
+  <!-- STEP 1 -->
+  <div class="card">
+    <div class="card-hdr" onclick="tog(1)"><div class="num" id="n1">1</div><div class="ctitle">CLIENT INFORMATION</div><div class="arr open" id="a1">▼</div></div>
+    <div class="cbody open" id="b1">
+      <div class="g2">
+        <div class="field"><label>Client / Business Name *</label><input id="clientName" placeholder="ABC Company LLC" oninput="upProg()"/></div>
+        <div class="field"><label>Industry</label><input id="industry" placeholder="e.g. Healthcare"/></div>
+      </div>
+      <div class="g2">
+        <div class="field"><label>Audit Date *</label><input id="auditDate" type="date" oninput="upProg()"/></div>
+        <div class="field"><label>Review Period</label><input id="reviewPeriod" placeholder="e.g. Jan–Mar 2025"/></div>
+      </div>
+      <div class="tip">💡 This appears at the top of every page of the client report.</div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="card">
+    <div class="card-hdr" onclick="tog(2)"><div class="num" id="n2">2</div><div class="ctitle">KEY FINDINGS</div><div class="arr" id="a2">▼</div></div>
+    <div class="cbody" id="b2">
+      <div class="fblock"><div class="ftitle">Unapplied Credits / Payments <span class="pri H">HIGH</span></div><div class="g2"><div class="field"><label>Amount ($)</label><div class="dw"><span class="sym">$</span><input type="number" id="f1" placeholder="0.00" min="0" step="0.01" oninput="upTotal()"/></div></div><div class="field"><label>Notes</label><input id="f1n" placeholder="e.g. 12 accounts"/></div></div></div>
+      <div class="fblock"><div class="ftitle">Short Pays / Discrepancies <span class="pri H">HIGH</span></div><div class="g2"><div class="field"><label>Amount ($)</label><div class="dw"><span class="sym">$</span><input type="number" id="f2" placeholder="0.00" min="0" step="0.01" oninput="upTotal()"/></div></div><div class="field"><label>Notes</label><input id="f2n" placeholder="e.g. 8 disputes"/></div></div></div>
+      <div class="fblock"><div class="ftitle">Aging Report Inaccuracies <span class="pri M">MEDIUM</span></div><div class="g2"><div class="field"><label>Amount ($)</label><div class="dw"><span class="sym">$</span><input type="number" id="f3" placeholder="0.00" min="0" step="0.01" oninput="upTotal()"/></div></div><div class="field"><label>Notes</label><input id="f3n" placeholder="e.g. DSO overstated"/></div></div></div>
+      <div class="fblock"><div class="ftitle">Billing / Tax Errors <span class="pri M">MEDIUM</span></div><div class="g2"><div class="field"><label>Amount ($)</label><div class="dw"><span class="sym">$</span><input type="number" id="f4" placeholder="0.00" min="0" step="0.01" oninput="upTotal()"/></div></div><div class="field"><label>Notes</label><input id="f4n" placeholder="e.g. Tax rate error"/></div></div></div>
+      <div class="fblock"><div class="ftitle">Stagnant Receivables (90+ Days) <span class="pri H">HIGH</span></div><div class="g2"><div class="field"><label>Amount ($)</label><div class="dw"><span class="sym">$</span><input type="number" id="f5" placeholder="0.00" min="0" step="0.01" oninput="upTotal()"/></div></div><div class="field"><label>Notes</label><input id="f5n" placeholder="e.g. 23 accounts"/></div></div></div>
+      <div class="total-box">
+        <div class="total-lbl">Total Potential Recovery Identified</div>
+        <div class="total-amt" id="ta">$0.00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="card">
+    <div class="card-hdr" onclick="tog(3)"><div class="num" id="n3">3</div><div class="ctitle">EXECUTIVE SUMMARY</div><div class="arr" id="a3">▼</div></div>
+    <div class="cbody" id="b3">
+      <div class="field"><label>Summary for Client (plain English)</label><textarea id="summaryInsight" rows="5" style="resize:vertical;line-height:1.5"></textarea></div>
+      <div class="tip">💡 Write this simply — your client may not have a finance background.</div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="card">
+    <div class="card-hdr" onclick="tog(4)"><div class="num" id="n4">4</div><div class="ctitle">AUDIT FEE & SERVICE TYPE</div><div class="arr" id="a4">▼</div></div>
+    <div class="cbody" id="b4">
+      <div class="g2">
+        <div class="field"><label>Your Fee ($)</label><div class="dw"><span class="sym">$</span><input type="number" id="auditFee" placeholder="1000" min="0" step="50"/></div></div>
+        <div class="field"><label>Service Type</label><select id="serviceType"><option>AR Audit (One-Time)</option><option>Audit + Cleanup Plan</option><option>Monthly AR Monitoring</option><option>AR Process Improvement</option></select></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gen-wrap"><button class="gen-btn" onclick="genPDF()">⬇ Generate Client PDF Report</button></div>
+<div class="toast" id="toast">✓ PDF Generated!</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+<script>
+document.getElementById('auditDate').value = new Date().toISOString().split('T')[0];
+document.getElementById('summaryInsight').value = "A portion of your reported past-due balances may not reflect truly outstanding receivables — but rather internal misapplications, unresolved discrepancies, and aging report inaccuracies. Addressing these areas can improve cash flow visibility, reduce unnecessary collection efforts, and restore confidence in your financial reporting.";
+
+function tog(n){
+  const b=document.getElementById('b'+n),a=document.getElementById('a'+n);
+  const o=b.classList.contains('open');
+  b.classList.toggle('open',!o); a.classList.toggle('open',!o);
+}
+function upProg(){
+  const nm=document.getElementById('clientName').value.trim();
+  const dt=document.getElementById('auditDate').value;
+  const hf=['f1','f2','f3','f4','f5'].some(id=>parseFloat(document.getElementById(id).value)>0);
+  let p=0; if(nm)p+=33; if(dt)p+=17; if(hf)p+=50;
+  document.getElementById('pf').style.width=p+'%';
+  const n1=document.getElementById('n1');
+  if(nm&&dt){n1.classList.add('done');n1.textContent='✓';}else{n1.classList.remove('done');n1.textContent='1';}
+  const n2=document.getElementById('n2');
+  if(hf){n2.classList.add('done');n2.textContent='✓';}else{n2.classList.remove('done');n2.textContent='2';}
+}
+function upTotal(){
+  const t=['f1','f2','f3','f4','f5'].reduce((s,id)=>s+(parseFloat(document.getElementById(id).value)||0),0);
+  document.getElementById('ta').textContent=fmt(t); upProg();
+}
+function fmt(v){return'$'+(parseFloat(v)||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+
+function genPDF(){
+  const cn=document.getElementById('clientName').value.trim();
+  if(!cn){alert('Please enter the client name first.');return;}
+  const{jsPDF}=window.jspdf;
+  const doc=new jsPDF({orientation:'portrait',unit:'pt',format:'letter'});
+  const N=[31,58,95],B=[31,92,153],G=[201,168,76],LB=[232,241,250],
+        GR=[85,85,85],W=[255,255,255],LG=[245,245,245],
+        GB=[240,250,244],GN=[26,122,74],R=[192,57,43],A=[183,119,13];
+  const PW=612,ML=40,CW=532; let y=0;
+  const ad=document.getElementById('auditDate').value;
+  const dd=ad?new Date(ad+'T12:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}):'';
+  const f=['f1','f2','f3','f4','f5'].map(id=>parseFloat(document.getElementById(id).value)||0);
+  const fn=['f1n','f2n','f3n','f4n','f5n'].map(id=>document.getElementById(id).value||'');
+  const tot=f.reduce((s,v)=>s+v,0);
+  const fee=parseFloat(document.getElementById('auditFee').value)||1000;
+  const roi=tot>0?(tot/fee).toFixed(1)+'x':'N/A';
+  const ins=document.getElementById('summaryInsight').value;
+  const svc=document.getElementById('serviceType').value;
+
+  function gb(y1,h){for(let i=0;i<PW;i++){const t=i/PW;let r,g,b;if(t<.5){const tt=t/.5;r=Math.round(31+(201-31)*tt);g=Math.round(58+(168-58)*tt);b=Math.round(95+(76-95)*tt);}else{const tt=(t-.5)/.5;r=Math.round(201+(31-201)*tt);g=Math.round(168+(92-168)*tt);b=Math.round(76+(153-76)*tt);}doc.setDrawColor(r,g,b);doc.setLineWidth(h);doc.line(i,y1+h/2,i+1,y1+h/2);}}
+  function sh(t){doc.setDrawColor(...B);doc.setLineWidth(1.5);doc.line(ML,y+1,ML+CW,y+1);y+=9;doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(...N);doc.text(t,ML,y);y+=14;}
+
+  gb(0,8);y=8;
+  doc.setFillColor(...N);doc.rect(0,y,PW,50,'F');
+  doc.setFillColor(...B);doc.rect(0,y+50,PW,22,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(20);doc.setTextColor(...W);doc.text('AR AUDIT REPORT',PW/2,y+32,{align:'center'});
+  doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(189,212,237);doc.text('Accounts Receivable Health Analysis & Recovery Report',PW/2,y+63,{align:'center'});
+  y+=80;
+  doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(...G);doc.text('Prepared exclusively by Bishop Financial Consulting',PW/2,y,{align:'center'});y+=14;
+  doc.setFillColor(...LB);doc.rect(ML,y,CW,54,'F');doc.setDrawColor(...B);doc.setLineWidth(.5);doc.rect(ML,y,CW,54,'S');
+  const rws=[[['Client:',cn],['Date:',dd]],[['Industry:',document.getElementById('industry').value||'—'],['Prepared By:','Tamika Bishop']],[['Period:',document.getElementById('reviewPeriod').value||'—'],['Contact:','tbishop225@gmail.com']]];
+  let ry=y+14;
+  rws.forEach(rw=>{doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(...GR);doc.text(rw[0][0],ML+8,ry);doc.text(rw[1][0],ML+290,ry);doc.setFont('helvetica','normal');doc.setTextColor(30,30,30);doc.text(rw[0][1]||'—',ML+105,ry);doc.text(rw[1][1]||'—',ML+385,ry);ry+=15;});
+  y+=64;
+  sh('1.  OVERVIEW');
+  const ol=doc.splitTextToSize('This report presents findings from a structured review of the accounts receivable aging report, conducted to identify discrepancies, misapplied funds, billing errors, and opportunities to improve cash visibility and account accuracy.',CW);
+  doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(...GR);doc.text(ol,ML,y);y+=ol.length*12+10;
+  sh('2.  KEY FINDINGS');
+  doc.autoTable({startY:y,margin:{left:ML,right:ML},head:[['FINDING','NOTES','TOTAL','PRIORITY']],body:[['Unapplied Credits / Payments',fn[0]||'Payments received but not applied to invoices.',fmt(f[0]),'HIGH'],['Short Pays / Discrepancies',fn[1]||'Invoices paid below billed amount.',fmt(f[1]),'HIGH'],['Aging Report Inaccuracies',fn[2]||'Balances incorrectly bucketed, distorting DSO.',fmt(f[2]),'MEDIUM'],['Billing / Tax Errors',fn[3]||'Incorrect rates, duplicates, or tax errors.',fmt(f[3]),'MEDIUM'],['Stagnant Receivables (90+)',fn[4]||'Balances 90+ days with no activity.',fmt(f[4]),'HIGH']],styles:{fontSize:8,cellPadding:5,textColor:GR,font:'helvetica'},headStyles:{fillColor:N,textColor:W,fontStyle:'bold',fontSize:8,halign:'center'},columnStyles:{0:{cellWidth:130,fontStyle:'bold',textColor:[30,30,30]},1:{cellWidth:208},2:{cellWidth:82,halign:'center',fontStyle:'bold',textColor:N},3:{cellWidth:62,halign:'center',fontStyle:'bold'}},alternateRowStyles:{fillColor:LG},didParseCell:d=>{if(d.column.index===3&&d.section==='body')d.cell.styles.textColor=d.cell.raw==='HIGH'?R:d.cell.raw==='MEDIUM'?A:GN;}});
+  y=doc.lastAutoTable.finalY+10;
+  sh('3.  FINANCIAL IMPACT SUMMARY');
+
+  // New insight line above ROI table
+  const insightLine='These findings represent cash that is already earned but currently delayed, misapplied, or at risk.';
+  const insightLines=doc.splitTextToSize(insightLine,CW-24);
+  const insH=insightLines.length*12+18;
+  doc.setFillColor(255,248,230);doc.rect(ML,y-2,CW,insH,'F');
+  doc.setDrawColor(...G);doc.setLineWidth(1.5);doc.rect(ML,y-2,CW,insH,'S');
+  doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(120,85,10);
+  doc.text(insightLines,ML+12,y+9);
+  y+=insH+6;
+
+  doc.autoTable({startY:y,margin:{left:ML,right:ML},head:[['CATEGORY','ESTIMATED IMPACT','PRIORITY']],body:[['Unapplied Credits',fmt(f[0]),'HIGH'],['Short Pays / Discrepancies',fmt(f[1]),'HIGH'],['Billing / Tax Errors',fmt(f[2]),'MEDIUM'],['Aging Misclassification',fmt(f[3]),'MEDIUM'],['Stagnant 90+ Day Balances',fmt(f[4]),'HIGH'],['TOTAL POTENTIAL RECOVERY',fmt(tot),'']],styles:{fontSize:8.5,cellPadding:6,font:'helvetica'},headStyles:{fillColor:N,textColor:W,fontStyle:'bold',halign:'center'},columnStyles:{0:{cellWidth:258},1:{cellWidth:180,halign:'center',fontStyle:'bold',textColor:N},2:{cellWidth:90,halign:'center',fontStyle:'bold'}},alternateRowStyles:{fillColor:LG},didParseCell:d=>{if(d.row.index===5){d.cell.styles.fontStyle='bold';d.cell.styles.fillColor=LB;d.cell.styles.textColor=N;}if(d.column.index===2&&d.section==='body')d.cell.styles.textColor=d.cell.raw==='HIGH'?R:d.cell.raw==='MEDIUM'?A:GR;}});
+  y=doc.lastAutoTable.finalY+4;
+
+  // Sub-line under TOTAL
+  doc.setFont('helvetica','italic');doc.setFontSize(7.5);doc.setTextColor(130,130,130);
+  doc.text('Based on reviewed dataset provided',ML+2,y+8);
+  y+=18;
+
+  sh('4.  RECOMMENDATIONS');
+  const rcs=['Apply all unapplied credits to correct open invoices and reconcile affected accounts immediately.','Investigate and document each short pay — credit memo, dispute, or write-off.','Review and correct all billing and tax discrepancies; reissue invoices where necessary.','Reclassify aging inaccuracies so DSO metrics reflect true outstanding balances.','Establish a 90-day escalation threshold for stagnant receivables.','Implement a monthly AR audit process to prevent recurrence.'];
+  const rH=rcs.length*17+12;doc.setFillColor(...GB);doc.rect(ML,y-2,CW,rH,'F');doc.setDrawColor(168,213,181);doc.setLineWidth(.5);doc.rect(ML,y-2,CW,rH,'S');
+  rcs.forEach(rc=>{doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(...GN);doc.text('✔',ML+8,y+9);doc.setFont('helvetica','normal');doc.setTextColor(...GR);doc.text(rc,ML+22,y+9,{maxWidth:CW-28});y+=17;});
+  y+=14;
+  sh('5.  SUMMARY INSIGHT');
+  const il=doc.splitTextToSize(ins,CW-24);const ih=il.length*12+22;
+  doc.setFillColor(...LB);doc.rect(ML,y-4,CW,ih,'F');doc.setDrawColor(...B);doc.setLineWidth(1);doc.rect(ML,y-4,CW,ih,'S');
+  doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(...N);doc.text(il,ML+12,y+8);y+=ih+10;
+
+  // Page 1 footer
+  doc.setDrawColor(204,204,204);doc.setLineWidth(.5);doc.line(ML,748,ML+CW,748);
+  doc.setFont('helvetica','italic');doc.setFontSize(6.5);doc.setTextColor(160,160,160);
+  const disc1='Disclaimer: All financial figures and recovery estimates in this report represent potential opportunities identified during the audit process and are not a guarantee of recovery or financial outcome. Actual results may vary.';
+  doc.text(doc.splitTextToSize(disc1,CW),ML,756);
+  doc.setDrawColor(204,204,204);doc.setLineWidth(.5);doc.line(ML,766,ML+CW,766);
+  doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(180,180,180);
+  doc.text('Bishop Financial Consulting  |  tbishop225@gmail.com  |  502-377-7138  |  Confidential',PW/2,774,{align:'center'});
+
+  // PAGE 2
+  doc.addPage();y=0;gb(0,8);y=8;
+  doc.setFillColor(...N);doc.rect(ML,y,CW,38,'F');doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(...W);doc.text('YOUR RETURN ON INVESTMENT',PW/2,y+24,{align:'center'});y+=38;
+  doc.setFillColor(...B);doc.rect(ML,y,CW,72,'F');
+  const T3=CW/3;
+  [[fmt(tot),'POTENTIAL RECOVERY','Based on findings'],[fmt(fee),'YOUR INVESTMENT',svc],[roi,'ESTIMATED ROI','Recovery vs. fee']].forEach((it,i)=>{const cx=ML+T3*i+T3/2;doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(189,212,237);doc.text(it[1],cx,y+14,{align:'center'});doc.setFont('helvetica','bold');doc.setFontSize(17);doc.setTextColor(...G);doc.text(it[0],cx,y+36,{align:'center'});doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(189,212,237);doc.text(doc.splitTextToSize(it[2],T3-10),cx,y+50,{align:'center'});if(i<2){doc.setDrawColor(58,122,191);doc.setLineWidth(.5);doc.line(ML+T3*(i+1),y+8,ML+T3*(i+1),y+64);}});
+  y+=82;
+
+  doc.setDrawColor(...B);doc.setLineWidth(1.5);doc.line(ML,y+1,ML+CW,y+1);y+=9;
+  doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(...N);
+  doc.text('SERVICES OFFERED BY BISHOP FINANCIAL CONSULTING',ML,y);y+=13;
+
+  // Updated pricing table
+  doc.autoTable({
+    startY:y,
+    margin:{left:ML,right:ML},
+    head:[["SERVICE","WHAT'S INCLUDED","INVESTMENT"]],
+    body:[
+      ['AR Audit (One-Time)','Full aging review, findings report, financial impact summary & recommendations','$1,000 – $1,500'],
+      ['Audit + Cleanup Plan','Audit + step-by-step recovery and resolution plan','$1,500 – $2,500'],
+      ['Monthly AR Monitoring','Ongoing tracking, reporting, and issue detection','Starting at $1,500/mo'],
+      ['AR Process Improvement','Workflow redesign, SOPs, and implementation support','Custom Engagement']
+    ],
+    styles:{fontSize:8.5,cellPadding:7,font:'helvetica',textColor:GR},
+    headStyles:{fillColor:N,textColor:W,fontStyle:'bold',halign:'center'},
+    columnStyles:{
+      0:{cellWidth:138,fontStyle:'bold',textColor:[30,30,30]},
+      1:{cellWidth:258},
+      2:{cellWidth:136,halign:'center',fontStyle:'bold',textColor:N}
+    },
+    alternateRowStyles:{fillColor:LG}
+  });
+  y=doc.lastAutoTable.finalY+14;
+
+  doc.setDrawColor(...B);doc.setLineWidth(1.5);doc.line(ML,y+1,ML+CW,y+1);y+=9;doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(...N);doc.text('WHY BISHOP FINANCIAL CONSULTING?',ML,y);y+=13;
+  const wy=[['10+ Years Experience','Financial operations and AR analysis across multiple industries'],['6+ ERP Systems','NetSuite, SAP Ariba, PeopleSoft, Microsoft Dynamics NAV, Coupa & more'],['Custom Audit Tools','Proprietary tools developed from real-world AR challenges'],['Data-Driven Approach','Focused on accuracy and financial clarity — not aggressive collections'],['U.S. Navy Veteran','Disciplined, reliable, and detail-oriented in every engagement']];
+  const wH=wy.length*18+12;doc.setFillColor(...LB);doc.rect(ML,y-2,CW,wH,'F');doc.setDrawColor(...B);doc.setLineWidth(.5);doc.rect(ML,y-2,CW,wH,'S');
+  wy.forEach((w,i)=>{doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(...N);doc.text(w[0],ML+10,y+9);doc.setFont('helvetica','normal');doc.setTextColor(...GR);doc.text(w[1],ML+158,y+9);if(i<wy.length-1){doc.setDrawColor(197,216,238);doc.setLineWidth(.3);doc.line(ML,y+16,ML+CW,y+16);}y+=18;});
+  y+=16;
+
+  // Disclaimer section
+  doc.setDrawColor(...B);doc.setLineWidth(1.5);doc.line(ML,y+1,ML+CW,y+1);y+=9;
+  doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(...N);
+  doc.text('DISCLAIMER & ESTIMATION NOTICE',ML,y);y+=13;
+  const discText='The financial figures, recovery estimates, and ROI projections contained in this report are based on identified discrepancies and opportunities observed during the accounts receivable audit process. All amounts represent potential recovery opportunities and are provided for informational purposes only. Actual results may vary depending on client action, debtor responsiveness, contractual terms, and other factors outside the control of Bishop Financial Consulting. These estimates are not a guarantee of recovery or financial outcome. Bishop Financial Consulting provides analysis, documentation, and actionable recommendations — the implementation of those recommendations and the results they produce are dependent on the client\'s business circumstances and decisions.';
+  const discLines=doc.splitTextToSize(discText,CW-24);
+  const discH=discLines.length*11+20;
+  doc.setFillColor(245,245,250);doc.rect(ML,y-4,CW,discH,'F');
+  doc.setDrawColor(180,180,200);doc.setLineWidth(.5);doc.rect(ML,y-4,CW,discH,'S');
+  doc.setFont('helvetica','italic');doc.setFontSize(8);doc.setTextColor(100,100,120);
+  doc.text(discLines,ML+12,y+8);
+  y+=discH+12;
+
+  doc.setFillColor(...G);doc.rect(ML,y,CW,54,'F');doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(...N);doc.text("Ready to recover what's yours?",PW/2,y+18,{align:'center'});
+  doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(80,60,10);doc.text('Contact Tamika Bishop today to schedule your AR audit consultation.',PW/2,y+32,{align:'center'});
+  doc.setFont('helvetica','bold');doc.setFontSize(9.5);doc.setTextColor(...N);doc.text('tbishop225@gmail.com     |     502-377-7138',PW/2,y+46,{align:'center'});y+=64;
+
+  // Page 2 footer
+  doc.setDrawColor(204,204,204);doc.setLineWidth(.5);doc.line(ML,748,ML+CW,748);
+  doc.setFont('helvetica','italic');doc.setFontSize(6.5);doc.setTextColor(160,160,160);
+  const disc2='Disclaimer: All estimates are based on identified opportunities and are not a guarantee of recovery or financial outcome. Results depend on client action and business circumstances.';
+  doc.text(doc.splitTextToSize(disc2,CW),ML,756);
+  doc.setDrawColor(204,204,204);doc.setLineWidth(.5);doc.line(ML,766,ML+CW,766);
+  doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(180,180,180);
+  doc.text('Bishop Financial Consulting  |  tbishop225@gmail.com  |  502-377-7138  |  Confidential',PW/2,774,{align:'center'});
+
+  const sf=cn.replace(/[^a-z0-9]/gi,'_');
+  const pdfBlob=doc.output('blob');const blobUrl=URL.createObjectURL(pdfBlob);window.open(blobUrl,'_blank');
+  const t=document.getElementById('toast');t.textContent='✓ PDF opened — tap Share then Save to Files!';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),5000);
+}
+</script>
+
+</body>
+</html>
